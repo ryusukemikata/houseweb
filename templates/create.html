@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1 class="text-bg-dark">　　　Add Housework　　　</h1>
+{% endblock header %}
+
+{% block content %}
+<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <!--
+    <p>日付：<input type="date" name="title"></p>
+    <p>家事：<input type="char" name="category"></p>
+    <p>担当：<input type="char" name="username"></p>
+    <p>メモ：<input type="text" name="suntext"></p>
+    -->
+    <!--{{form.as_p}} -->
+    {% for field in form %}
+        <div class="field">
+            {{field.label_tag}}
+            {{field}}
+        </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-primary" value="作成する">
+    <a href="{% url 'list' %}" class="btn btn-primary">戻る</a>
+</form>
+{% endblock content %} 

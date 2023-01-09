@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 class="text-bg-dark">　　　Delete Log　　</h1>
+{% endblock header %}
+
+{% block content %}
+<form action='' method="POST">{% csrf_token %}
+    
+    {{field}}
+    <p>削除します。よろしいですか？</p>
+    <table class="table table-sm table-bordered table-responsive">
+        <tbody>
+            <tr>
+                <th>日付</th>
+                <td>{{ object.postdate }}</td>
+            </tr>
+            <tr>
+                <th>家事</th>
+                <td>{{ object.get_category_display }}</td>
+            </tr>
+            <tr>
+                <th>担当者</th>
+                <td>{{ object.get_username_display }}</td>
+            </tr>
+            <tr>
+                <th>メモ</th>
+                <td>{{ object.suntext }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" class="btn btn-danger" value='実行'>
+    <a href="{% url 'detail' object.category %}" class="btn btn-primary">戻る</a>
+</form>
+{% endblock content %}
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1 class="text-bg-dark">　　　Housework Log　　</h1>
+{% endblock header %}
+
+{% block content %}
+
+<div class="container">
+    <a href = "{% url 'create' %}" class="btn btn-primary">新規登録</a>
+    {% for item in object_list %}
+    <div class="card">
+        <h5 class="card-header">{{ item.get_category_display }}</h5>
+        <div class="card-body">
+            <h5 class="card-title">担当：{{ item.get_username_display }}</h5>
+            <h5 class="card-title">日付：{{ item.postdate }}</h5>
+            <h5 class="card-title">メモ：{{ item.suntext }}</h5>
+            <a href="{% url 'detail' item.category %}" class="btn btn-primary">詳しく見る</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

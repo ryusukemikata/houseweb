@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+<!-- <h1 class="text-bg-dark">　　　カテゴリ別履歴　　　</h1> -->
+<link rel='stylesheet' type="text/css" href="{% static 'style.css'%}" >
+{% endblock header %}
+
+{% block content %}
+<h1 class="text-bg-dark">　　　{{ category_name }}Log</h1>
+
+<div class="container">
+    <a href="{% url 'list' %}" class="btn btn-primary">戻る</a>
+    {% for item in object_list %}
+    <div class="card">
+        <h5 class="card-header">{{ item.postdate }}</h5>
+        <div class="card-body">
+            <h5 class="card-title">担当：{{ item.get_username_display }}</h5>
+            <h5 class="card-title">メモ：{{ item.suntext }}</h5>
+            <a href="{% url 'delete' item.pk %}" class="btn btn-danger">削除</a>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock content %}
