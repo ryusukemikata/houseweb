@@ -13,9 +13,13 @@ def listview(request):
     #print(type(object_list))
 
     for key in HOUSEWORK_CATEGORY:
-        getobject = object_list.filter(category = key[0]).order_by('postdate').reverse()[0]
-        if(getobject is not None):
-            ans_list.append(getobject)
+        getobject = object_list.filter(category = key[0])
+        
+        #print("==================")
+        #print(getobject.count())
+        #print("==================")
+        if(getobject is not None and getobject.count() != 0):
+            ans_list.append(getobject.order_by('postdate').reverse()[0])
     return render(request,'list.html',{'object_list':ans_list})
 
 class CreateClass(CreateView):

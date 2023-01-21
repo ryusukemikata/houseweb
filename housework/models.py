@@ -3,8 +3,8 @@ from django.utils import timezone
 
 # Create your models here.
 
-HOUSEWORK_CATEGORY = [('cooking','料理'),('washing dish','皿洗い'),('sink drain','シンク排水溝'),
-('laundry','洗濯干し'),('fold','洗濯たたみ'),('wash basin','手洗い場'),('bath','お風呂'),('toilet','トイレ'),('trash','ゴミ出し'),]
+HOUSEWORK_CATEGORY = [('cooking','料理'),('washing dish','皿洗い'),('kitchen','キッチン'),('sink drain','シンク排水溝'),
+('laundry','洗濯干し'),('fold','洗濯たたみ'),('wash basin','手洗い場'),('bath','お風呂'),('toilet','トイレ'),('trash','ゴミ出し'),('floor','床掃除'),]
 USER = [('tekate','テカテ'),('emi','エミ'),]
 
 class HouseworkModel(models.Model):
